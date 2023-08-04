@@ -2,6 +2,28 @@ import pytest
 from hashtable import HashTable, BLANK
 
 
+@pytest.fixture
+def hash_table():
+    sample_data = HashTable(capacity=500)
+    sample_data["cola"] = "Coke"
+    sample_data[2.71] = 42
+    sample_data[False] = True
+    return sample_data
+
+
+def test_should_find_value_by_key(hash_table):
+    assert hash_table["cola"] == "Coke"
+    assert hash_table[2.71] == 42
+    assert hash_table[False] == True
+
+
+def test_should_raise_error_on_missing_key():
+    hash_table = HashTable(capacity=100)
+    with pytest.raises(KeyError) as exception_info:
+        hash_table["missing_key"]
+    assert exception_info.value.args[0] == "missing_key"
+
+
 def test_should_create_hashtable():
     assert HashTable(capacity=100) is not None
 
