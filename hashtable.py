@@ -1,6 +1,8 @@
+BLANK = object()
+
 class HashTable:
     def __init__(self, capacity):
-        self.values = capacity * [None]
+        self.values = capacity * [BLANK]
 
     def __len__(self):
         return len(self.values)
