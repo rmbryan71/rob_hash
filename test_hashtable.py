@@ -62,3 +62,27 @@ def test_should_insert_none_value():
     hash_table = HashTable(capacity=10)
     hash_table["key"] = None
     assert None in hash_table.values
+
+
+def test_should_find_key(hash_table):
+    assert "cola" in hash_table
+
+
+def test_should_not_find_key(hash_table):
+    assert "missing_key" not in hash_table
+
+
+def test_should_get_value(hash_table):
+    assert hash_table.get("cola") == "Coke"
+
+
+def test_should_get_none_when_missing_key(hash_table):
+    assert hash_table.get("missing_key") is None
+
+
+def test_should_get_default_value_when_missing_key(hash_table):
+    assert hash_table.get("missing_key", "default") == "default"
+
+
+def test_should_get_value_with_default(hash_table):
+    assert hash_table.get("cola", "default") == "Coke"
