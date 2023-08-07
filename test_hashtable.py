@@ -14,7 +14,7 @@ def hash_table():
 def test_should_find_value_by_key(hash_table):
     assert hash_table["cola"] == "Coke"
     assert hash_table[2.71] == 42
-    assert hash_table[False] == True
+    assert hash_table[False] is True
 
 
 def test_should_raise_error_on_missing_key():
