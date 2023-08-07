@@ -22,6 +22,7 @@ def test_should_raise_error_on_missing_key():
     with pytest.raises(KeyError) as exception_info:
         hash_table["missing_key"]
     assert exception_info.value.args[0] == "missing_key"
+# I don't know why line 23 is flagged for having no effect
 
 
 def test_should_create_hashtable():

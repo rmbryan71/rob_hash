@@ -1,5 +1,6 @@
 BLANK = object()
 
+
 class HashTable:
     def __init__(self, capacity):
         self.values = capacity * [BLANK]
@@ -17,3 +18,9 @@ class HashTable:
         if value is BLANK:
             raise KeyError(key)
         return value
+
+    def get(self, key, default=None):
+        try:
+            return self[key]
+        except KeyError:
+            return default
